@@ -27,14 +27,14 @@ public class StreamDemo {
         for(Object val : array) {
             System.out.print(val + " ");
         }
-        //2 cont.
+        //2 count.
         Stream<Integer> sx = Stream.of(1,2, 3,7,6, 7);
         Long count = sx.count();
         System.out.println(count);
 
         Stream<Integer> s1 = Stream.of(1,2, 3,7,6, 7);
         //foreach()
-        s1.forEach(e->System.err.print(e));
+       // s1.forEach(e->System.err.print(e));
 
         //min() max()
         Stream<Integer> s2 = Stream.of(1,2,3,5,4);
@@ -44,5 +44,28 @@ public class StreamDemo {
         Optional<Integer> max = s3.max((x, y) -> x.compareTo(y));
         System.out.println("max " + max.get());
 
+        //anyMatch()
+        System.out.println("anyMatch example");
+        Stream<Integer> s4 = Stream.of(22, 13, 43, 18, 70);
+        boolean b = s4.anyMatch(x -> x == 13); // return boolean true or false
+        System.out.println(b);
+
+        //allMatch();
+
+        Stream<Integer> s5 = Stream.of(22, 11, 43, 16, 19);
+        boolean b1 = s5.allMatch(x -> x % 2 == 0);
+        System.out.println(b1);
+
+        //nonMatch()
+        Stream<Integer> s6 = Stream.of(22, 11, 43, 16, 19);
+        boolean b2 = s5.noneMatch(x -> x % 2 == 0);
+        System.out.println(b2);
+
+        //todo complete the following functions
+        /**
+         * findAny() - Returns any match
+         * findFirst() - return the first match
+         * collect() - collect the List, map etc
+         */
     }
 }
