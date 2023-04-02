@@ -1,5 +1,6 @@
 package predicate;
 
+import java.util.function.Function;
 import java.util.function.Predicate;
 
 public class PredicateDemo {
@@ -32,12 +33,30 @@ public class PredicateDemo {
        System.out.println(p3.test(51));
 
 
+        System.out.println("// checking Function and Boolean combine");
+        int input = 2;
+        modifyValues(p1, arr, input);
+
+
     }
 
     public static void check(Predicate<Integer> predicate, int[] values) {
         for(Integer a: values) {
             if(predicate.test(a))
                 System.out.println(a);
+        }
+    }
+
+    // checking Function and Boolean combine
+    // checking if conditions are met and multiplying the value by 2 if conditions are met.
+    public static void modifyValues(Predicate<Integer> predicate, int [] values, int input) {
+        Function<Integer, Integer> x = y->0;
+        for (Integer val: values ) {
+            if(predicate.test(val)) {
+                x = x.andThen(y -> val * input);
+                int returnValue = x.apply(input);
+                System.out.println(returnValue);
+            }
         }
     }
 
