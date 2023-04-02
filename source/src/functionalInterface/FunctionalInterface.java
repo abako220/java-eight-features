@@ -19,11 +19,6 @@ public abstract class FunctionalInterface implements Parent {
     }
 
 
-    Child c = (int a) -> a * 2;
-    //int ans = c.multiply(2);
-
-    // Parent i = (int[] a)
-
 }
     @java.lang.FunctionalInterface
     interface Parent {
