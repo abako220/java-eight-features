@@ -41,7 +41,7 @@ public class StreamDemo {
         Optional<Integer> min = s2.min((x, y) -> x.compareTo(y));
         System.out.println("min " + min.get());
         Stream<Integer> s3 = Stream.of(1,2,3,5,4);
-        Optional<Integer> max = s3.max((x, y) -> x.compareTo(y));
+        Optional<Integer> max = s3.max(Integer::compare);
         System.out.println("max " + max.get());
 
         //anyMatch()
